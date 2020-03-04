@@ -1,0 +1,49 @@
+{% load static %}
+
+<form action="{% url 'crud:ins_auto' %}" method="POST" id="form0" novalidate="novalidate">
+    {% csrf_token %}
+    <div class="modal-header">
+        <h5 class="modal-title" id="modalBsLabel">Insertar auto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="form-group">
+            {{ form.marcas_id.label_tag }}
+            {{ form.marcas_id }}
+        </div>
+        <div class="form-group">
+            {{ form.modelo_id.label_tag }}
+            {{ form.modelo_id }}
+        </div>
+        <div class="form-group">
+            {{ form.colores.errors }}
+            {{ form.colores.label_tag }}
+            {{ form.colores }}
+        </div>
+        <div class="form-group">
+            {{ form.precio.errors }}
+            {{ form.precio.label_tag }}
+            {{ form.precio }}
+        </div>
+        <div class="form-group">
+            {{ form.descripcion.errors }}
+            {{ form.descripcion.label_tag }}
+            {{ form.descripcion }}
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+</form>
+
+<script src="{% static 'crud/js/ins_auto.js' %}"></script>
+<script>
+    $(function(){
+        ins_auto.init();
+    });
+</script>
